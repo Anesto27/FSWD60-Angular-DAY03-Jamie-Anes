@@ -12,7 +12,8 @@ export class CustomerService {
   	customerList: AngularFireList<any>;
  	form = new FormGroup({
      $key: new FormControl(null),
-     fullName: new FormControl('', Validators.required),//We add Validators option and we used required so the user must fill the input
+     firstName: new FormControl('', Validators.required),
+     lastName: new FormControl('', Validators.required),//We add Validators option and we used required so the user must fill the input
      email: new FormControl('', Validators.email),// to check if the value inside the input is an email
      mobile: new FormControl('', [Validators.required, Validators.minLength(8)]), // here we put an array because we want the user to fill the input and the input length must be at least 8
      location: new FormControl('')
@@ -25,7 +26,8 @@ export class CustomerService {
          }
 	insertCustomer(customer){
                  this.customerList.push({
-                    fullName: customer.fullName,
+                    firstName: customer.firstName,
+                    lastName: customer.lastName,
                     email: customer.email,
                     mobile: customer.mobile,
                     location:customer.location
