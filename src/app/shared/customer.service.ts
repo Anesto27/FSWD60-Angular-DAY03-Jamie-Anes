@@ -38,7 +38,8 @@ export class CustomerService {
   }
   updateCustomer(customer){
     this.customerList.update(customer.$key,{
-       fullName: customer.fullName,
+       firstName: customer.firstName,
+       lastName: customer.lastName,
         email: customer.email,
         mobile: customer.mobile,
         location:customer.location
