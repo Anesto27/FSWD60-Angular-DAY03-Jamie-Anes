@@ -2,7 +2,20 @@
   <div class="col-md-5">
     <form [formGroup]="this.customerService.form" (ngSubmit)="onSubmit()">
       <input type="hidden" formControlName="$key">
-      
+      <div class="form-group">
+        <label>First Name</label>
+        <!-- we will add this class is-invalid with the help of [ngClass] directive
+                                this class will be applied when the form is submitted and we have a validation error regarding full name -->
+        <input formControlName="firstName" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.firstName.errors}">
+        <label>Last Name</label>
+        <!-- we will add this class is-invalid with the help of [ngClass] directive
+                                this class will be applied when the form is submitted and we have a validation error regarding full name -->
+        <input formControlName="lastName" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.lastName.errors}">
+        <!-- now we will add an additional due to show the exact reason for the validation error so here we have the deal with this class invilid-feedback
+                                        only based on the same condition inside that -->
+        <div class="invalid-feedback" *ngIf="submitted && formControls.firstName.errors">This field is required</div>
+        <div class="invalid-feedback" *ngIf="submitted && formControls.lastName.errors">This field is required</div>
+      </div>
       <div class="form-group">
         <label>Email</label>
         <!-- here we add the the invalid class based on the same condition for email and the possible error for this email control is due to the invalid email address -->
