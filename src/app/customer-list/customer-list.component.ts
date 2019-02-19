@@ -34,6 +34,7 @@ export class CustomerListComponent implements OnInit {
 
 
  filterCondition(customer){
-   return customer.fullName.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 ;
+   return customer.firstName.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 ;
+   
  }
 }
